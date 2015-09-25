@@ -27,3 +27,5 @@ The only way to get the page to load again is to clear your session cookie.
 ### Unit tests
 1. Run `python manage.py test`.
 2. You will get two test failures when `ApplicantTestCase` runs.
+
+Good luck!
