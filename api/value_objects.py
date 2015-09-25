@@ -9,5 +9,5 @@ class ApplicantObject(BaseValueObject):
   first_name  = fields.Primitive()
   last_name   = fields.Primitive()
   gender      = fields.Primitive()
-  # birthday    = fields.Date()
+  birthday    = fields.Date()
   email       = fields.Primitive()

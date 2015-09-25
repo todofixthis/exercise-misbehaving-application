@@ -1,6 +1,8 @@
 # coding=utf-8
 from __future__ import absolute_import, unicode_literals
 
+from datetime import date
+
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
@@ -16,6 +18,9 @@ class ApplicantTestCase(TestCase):
         'first_name': 'Marcus',
         'last_name':  'Brody',
         'gender':     'm',
+        # :kludge: Marcus Brody was actually born in 1878, but we have to use year >= 1900.
+        # :see: http://stackoverflow.com/a/1644026
+        'birthday':   '1900-08-13',
         'email':      'marcus.brody@marshall.edu',
       })
       """:type: django.http.HttpResponse"""
@@ -29,6 +34,7 @@ class ApplicantTestCase(TestCase):
       self.assertEqual(applicant.first_name, 'Marcus')
       self.assertEqual(applicant.last_name, 'Brody')
       self.assertEqual(applicant.gender, 'm')
+      self.assertEqual(applicant.birthday, date(1900, 8, 13))
       self.assertEqual(applicant.email, 'marcus.brody@marshall.edu')
 
   def test_update_applicant(self):
@@ -39,6 +45,7 @@ class ApplicantTestCase(TestCase):
         'first_name': 'Marcus',
         'last_name':  'Brody',
         'gender':     'm',
+        'birthday':   date(1900, 8, 13),
         'email':      'marcus.brody@marshall.edu',
       }))
 
@@ -46,6 +53,7 @@ class ApplicantTestCase(TestCase):
         'first_name': 'Marion',
         'last_name':  'Ravenwood',
         'gender':     'f',
+        'birthday':   '1909-03-23',
         'email':      'marion@ravens-nest.com',
       })
       """:type: django.http.HttpResponse"""
@@ -59,4 +67,5 @@ class ApplicantTestCase(TestCase):
       self.assertEqual(applicant.first_name, 'Marion')
       self.assertEqual(applicant.last_name, 'Ravenwood')
       self.assertEqual(applicant.gender, 'f')
+      self.assertEqual(applicant.birthday, date(1909, 3, 23))
       self.assertEqual(applicant.email, 'marion@ravens-nest.com')
