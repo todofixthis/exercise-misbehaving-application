@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Applicant Details</title>
+  </head>
+
+  <body>
+    <h1>Enter Applicant Details</h1>
+
+    {% if applicant %}
+      <pre>{{ applicant.get_public_values|pprint }}</pre>
+    {% endif %}
+
+    <form method="post" action="{% url "applicant" %}">
+      {% csrf_token %}
+
+      <table>
+        {{ form.as_table }}
+      </table>
+
+      <input type="submit">
+    </form>
+  </body>
+</html>
