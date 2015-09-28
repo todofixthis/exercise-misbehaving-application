@@ -10,6 +10,7 @@ One of your fellow developers is building a web application to collect informati
 1. Clone this repo and check out the `develop` branch.
 2. Create a virtualenv for the project.
 3. Run `pip install -r requirements.txt`.
+4. Run `python manage.py migrate`.
 
 ## Reproducing the Bug
 ### Browser
