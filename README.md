@@ -8,7 +8,7 @@ One of your fellow developers is building a web application to collect informati
 
 ## Installation
 1. Clone this repo and check out the `develop` branch.
-2. Create a virtualenv for the project.
+2. [Create a virtualenv for the project.](http://virtualenvwrapper.readthedocs.org/en/latest/#introduction)
 3. Run `pip install -r requirements.txt`.
 4. Run `python manage.py migrate`.
 
