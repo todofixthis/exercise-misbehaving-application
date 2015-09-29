@@ -4,7 +4,7 @@ Unit tests are failing, the app crashes after the first request... what's going 
 ## Objective
 One of your fellow developers is building a web application to collect information about bank loan applicants.  However,
   the application keeps crashing, and nobody can figure out why.  You have been tasked with hunting down the source of
-  the bug and fix the issue.
+  the bug and fixing the issue.
 
 ## Installation
 1. Clone this repo and check out the `develop` branch.
