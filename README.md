@@ -17,7 +17,7 @@ However, on all subsequent page views, the application crashes with a weird erro
 You have been tasked with tracking down the source of the problem, and fixing it.
 
 ## Meta-Objective
-Since this is an exercise, the approach(es) you take to sloving the problem are much more important than the solution itself.
+Since this is an exercise, the approach(es) you take to sloving the problem are just as important as the solution itself.
   Just like a math test, you won't get credit if you don't show your work, so make sure to include with your solution a screen
   recording or other detailed description of the exact steps you took during the entirety of the exercise.
   
