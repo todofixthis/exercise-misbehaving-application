@@ -21,8 +21,8 @@ Since this is an exercise, the approach(es) you take to sloving the problem are 
   Just like a math test, you won't get credit if you don't show your work, so make sure to include with your solution a screen
   recording or other detailed description of the exact steps you took during the entirety of the exercise.
   
-There are multiple ways to solve this problem, but some are objectively better (in terms of performance, reliability and
-  maintainability) than others.  Be prepared to explain not just how your solution works, but also *why* you chose it.
+**There are multiple ways to solve this problem, but some are objectively better (in terms of performance, reliability and
+  maintainability) than others.**  Be prepared to explain not just how your solution works, but also *why* you chose it.
 
 ## Installation
 1. Clone this repo and check out the `develop` branch.
