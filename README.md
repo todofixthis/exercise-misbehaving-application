@@ -1,4 +1,4 @@
-# exercise-misbehaving-application
+# Misbehaving Application Exercise
 Unit tests are failing, the app crashes after the first request... what's going on here?!
 
 ## Objective
@@ -24,14 +24,17 @@ Since this is an exercise, the approach(es) you take to sloving the problem are 
 **There are multiple ways to solve this problem, but some are objectively better (in terms of performance, reliability and
   maintainability) than others.**  Be prepared to explain not just how your solution works, but also *why* you chose it.
 
-## Installation
+## Hints
+- This exercise has an easy solution and a hard solution.  The hard solution is the correct one.
+
+# Installation
 1. Clone this repo and check out the `develop` branch.
 2. [Create a virtualenv for the project.](http://virtualenvwrapper.readthedocs.org/en/latest/#introduction)
 3. Run `pip install -r requirements.txt`.
 4. Run `python manage.py migrate`.
 
-## Reproducing the Bug
-### Browser
+# Reproducing the Bug
+## Browser
 1. Run `python manage.py runserver`.
 2. Open <http://localhost:8000/applicant>.
 3. Fill out the form fields and submit the form.
@@ -43,7 +46,7 @@ Since this is an exercise, the approach(es) you take to sloving the problem are 
      
 The only way to get the page to load again is to clear your session cookie.
     
-### Unit tests
+## Unit tests
 1. Run `python manage.py test`.
 2. You will get two test failures when `ApplicantTestCase` runs.
 
