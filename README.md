@@ -43,5 +43,5 @@ The only way to get the page to load again is to clear your session cookie.
   please contact us before continuing the exercise.
 
 ## Hints
-- This exercise has an easy solution and a hard solution.  The easly solution masks the real problem; the hard solution actually
+- This exercise has an easy solution and a hard solution.  The easy solution masks the real problem; the hard solution actually
   fixes it.
