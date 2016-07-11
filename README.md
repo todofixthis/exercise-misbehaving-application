@@ -16,17 +16,6 @@ However, on all subsequent page views, the application crashes with a weird erro
   
 You have been tasked with tracking down the source of the problem, and fixing it.
 
-## Meta-Objective
-Since this is an exercise, the approach(es) you take to sloving the problem are just as important as the solution itself.
-  Just like a math test, you won't get credit if you don't show your work, so make sure to include with your solution a screen
-  recording or other detailed description of the exact steps you took during the entirety of the exercise.
-  
-**There are multiple ways to solve this problem, but some are objectively better (in terms of performance, reliability and
-  maintainability) than others.**  Be prepared to explain not just how your solution works, but also *why* you chose it.
-
-## Hints
-- This exercise has an easy solution and a hard solution.  The hard solution is the correct one.
-
 # Installation
 1. Clone this repo and check out the `develop` branch.
 2. [Create a virtualenv for the project.](http://virtualenvwrapper.readthedocs.org/en/latest/#introduction)
@@ -50,4 +39,9 @@ The only way to get the page to load again is to clear your session cookie.
 1. Run `python manage.py test`.
 2. You will get two test failures when `ApplicantTestCase` runs.
 
-Good luck!
+**Important:**  If you are sure you installed the app correctly, but you get the wrong error when you try to reproduce the bug,
+  please contact us before continuing the exercise.
+
+## Hints
+- This exercise has an easy solution and a hard solution.  The easly solution masks the real problem; the hard solution actually
+  fixes it.
