@@ -8,13 +8,15 @@ from api.forms import ApplicantForm
 
 
 class Applicant(View):
-  def get(self, request):
+  @staticmethod
+  def get(request):
     return render(request, 'applicant.html', {
       'form':       ApplicantForm,
       'applicant':  request.session.get_applicant_vo(),
     })
 
-  def post(self, request):
+  @staticmethod
+  def post(request):
     form = ApplicantForm(request.POST)
 
     if form.is_valid():

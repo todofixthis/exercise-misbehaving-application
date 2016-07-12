@@ -5,6 +5,7 @@ from abc import ABCMeta
 from collections import Container
 from datetime import datetime
 from decimal import Decimal as DecimalType
+
 from pytz import utc
 
 
@@ -136,7 +137,7 @@ class Collection(Field):
 
         return {
             k: self.sub_field.init(v)
-                for k, v in value.iteritems()
+                for k, v in value.items()
         }
 
     def merge(self, existing, incoming):
@@ -148,7 +149,7 @@ class Collection(Field):
         if incoming is not None:
             merged.update({
                 k: self.sub_field.merge(merged.get(k, None), v)
-                    for k, v in incoming.iteritems()
+                    for k, v in incoming.items()
             })
 
         return merged
@@ -162,7 +163,7 @@ class Collection(Field):
 
         return {
             k: self.sub_field.hydrate(v)
-                for k, v in value.iteritems()
+                for k, v in value.items()
         }
 
     def dehydrate(self, value):
@@ -174,7 +175,7 @@ class Collection(Field):
 
         return {
             k: self.sub_field.dehydrate(v)
-                for k, v in value.iteritems()
+                for k, v in value.items()
         }
 
     def make_public_value(self, value):
@@ -184,11 +185,11 @@ class Collection(Field):
         if value is None:
             return {}
 
-        fields = set(self.public if isinstance(self.public, set) else value.iterkeys())
+        fields = set(self.public if isinstance(self.public, set) else value.keys())
 
         return {
             k: self.sub_field.make_public_value(v)
-                for k, v in value.iteritems()
+                for k, v in value.items()
                 if k in fields
         }
 
@@ -340,7 +341,7 @@ class Decimal(Field):
         return None if value is None else DecimalType(value)
 
     def dehydrate(self, value):
-        return None if value is None else unicode(value)
+        return None if value is None else format(value, 'f')
 
     def make_public_value(self, value):
         # :see: importer.core.filters.simple.Unicode#_apply

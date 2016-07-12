@@ -1,3 +1,4 @@
 Django==1.8.13
 django-json-field==0.5.7
 pytz==2016.4
+six==1.10.0

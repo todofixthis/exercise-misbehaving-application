@@ -1,5 +1,7 @@
 # coding=utf-8
-from __future__ import absolute_import, unicode_literals
+from __future__ import absolute_import, unicode_literals, print_function
+
+from six import with_metaclass
 
 from api.value_object.fields import Field
 
@@ -18,11 +20,11 @@ class ValueObjectMeta(type):
         :type bases:    tuple[type]
         :type attrs:    dict
         """
-        attrs[b'fields'] = {}
+        attrs['fields'] = {}
 
         # Move fields to a special container.
         # Note that we iterate over a pre-computed list so that we can modify `attrs` from inside the loop.
-        for attr in [attr for attr, field in attrs.iteritems() if isinstance(field, Field)]:
+        for attr in [attr for attr, field in attrs.items() if isinstance(field, Field)]:
             field = attrs.pop(attr)
 
             #
@@ -33,7 +35,7 @@ class ValueObjectMeta(type):
             if not field.key:
                 field.key = attr
 
-            attrs[b'fields'][attr] = field
+            attrs['fields'][attr] = field
 
         return super(ValueObjectMeta, mcs).__new__(mcs, name, bases, attrs)
 
@@ -57,30 +59,28 @@ class ValueObjectMeta(type):
         """
         return {
             field.key or name: field.hydrate(dehydrated.get(field.key or name))
-                for name, field in cls.fields.iteritems()
+                for name, field in cls.fields.items()
         }
 
 
-class BaseValueObject(object):
+class BaseValueObject(with_metaclass(ValueObjectMeta)):
     """
     Base functionality for value objects.
     """
-    __metaclass__ = ValueObjectMeta
-
     def __init__(self, filtered_data):
         super(BaseValueObject, self).__init__()
 
         self._fields = type(self).fields
         self._values = {
             name: field.init(filtered_data.get(field.key, None))
-                for name, field in self._fields.iteritems()
+                for name, field in self._fields.items()
         }
 
     def __getattr__(self, attr):
         try:
             return self._values[attr]
         except KeyError:
-            raise AttributeError(b'{type!r} object has no attribute {attr!r}'.format(
+            raise AttributeError('{type!r} object has no attribute {attr!r}'.format(
                 type    = type(self).__name__,
                 attr    = attr,
             ))
@@ -93,7 +93,7 @@ class BaseValueObject(object):
         """
         self._values.update({
             name: field.merge(self._values.get(name), incoming._values.get(name))
-                for name, field in self._fields.iteritems()
+                for name, field in self._fields.items()
         })
 
     def dehydrate(self):
@@ -109,7 +109,7 @@ class BaseValueObject(object):
         """
         return {
             field.key: field.dehydrate(self._values.get(name))
-                for name, field in self._fields.iteritems()
+                for name, field in self._fields.items()
         }
 
     def get_public_values(self, *fields):
@@ -133,7 +133,7 @@ class BaseValueObject(object):
 
         return {
             field.key: field.make_public_value(self._values.get(name))
-                for name, field in self._fields.iteritems()
+                for name, field in self._fields.items()
                 if field.key in public_fields
         }
 
@@ -150,6 +150,6 @@ class BaseValueObject(object):
         """
         return tuple(
             field.key
-                for field in self._fields.itervalues()
+                for field in self._fields.values()
                 if ((not fields) or (field.key in fields)) and field.public
         )

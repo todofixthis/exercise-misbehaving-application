@@ -1,7 +1,6 @@
 # coding=utf-8
 from __future__ import absolute_import, unicode_literals
 
-import sys
 from uuid import uuid4
 
 from django.contrib.sessions.backends.base import CreateError
@@ -99,7 +98,7 @@ class SessionStore(DjangoSessionStore):
             savepoint_rollback(sid, using=using)
 
             if must_create:
-                raise CreateError(), None, sys.exc_info()[2]
+                raise CreateError()
             raise
         else:
             savepoint_commit(sid, using=using)
@@ -121,7 +120,7 @@ class SessionStore(DjangoSessionStore):
             self._exists = False
 
     def _get_new_session_key(self):
-        return uuid4().hex.decode('utf-8')
+        return uuid4().hex
 
     def _check_exists(self, session_key):
         """
