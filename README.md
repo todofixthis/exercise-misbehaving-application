@@ -40,13 +40,15 @@ This exercise is compatible with Python 2.7, 3.4, 3.5 and 3.6.
 5. You will get a weird error:
 
     > ### TypeError at /applicant
-    > must be string, not datetime.date
+    > strptime() argument 1 must be string, not datetime.date
 
 The only way to get the page to load again is to clear your session cookie.
 
 ## Unit tests
 1. Run `python manage.py test`.
-2. You will get two test failures when `ApplicantTestCase` runs.
+2. You will get two test errors when `ApplicantTestCase` runs (same error both times):
+
+    > TypeError: strptime() argument 1 must be string, not datetime.date
 
 **Important:**  If you are sure you installed the app correctly, but you get
     the wrong error when you try to reproduce the bug, please contact us before
