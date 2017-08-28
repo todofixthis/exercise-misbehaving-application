@@ -7,14 +7,13 @@ from datetime import datetime
 from decimal import Decimal as DecimalType
 
 from pytz import utc
+from six import with_metaclass
 
 
-class Field(object):
+class Field(with_metaclass(ABCMeta)):
     """
     Base functionality for value object fields.
     """
-    __metaclass__ = ABCMeta
-
     def __init__(self, key=None, public=True):
         """
         :type key: unicode

@@ -24,7 +24,7 @@ You have been tasked with tracking down the source of the problem, and fixing
     it.
 
 # Installation
-This exercise is compatible with Python 2.7 and Python 3.4.
+This exercise is compatible with Python 2.7, 3.4, 3.5 and 3.6.
 
 1. Clone this repo and check out the `develop` branch.
 2. [Create a virtualenv for the project.](http://virtualenvwrapper.readthedocs.org/en/latest/#introduction)
