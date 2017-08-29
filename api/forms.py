@@ -10,7 +10,7 @@ class ApplicantForm(forms.Form):
   first_name  = forms.CharField()
   last_name   = forms.CharField()
   gender      = forms.ChoiceField(choices=(('m', 'Male'), ('f', 'Female')))
-  birthday    = forms.DateField()
+  birthday    = forms.DateField(label='Birthday (YYYY-MM-DD)')
   email       = forms.CharField()
 
   def clean(self):
