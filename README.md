@@ -28,12 +28,12 @@ This exercise is compatible with Python 2.7, 3.4, 3.5 and 3.6.
 
 1. Clone this repo and check out the `develop` branch.
 2. [Create a virtualenv for the project.](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
-3. Run `pip install -r requirements.txt`.
-4. Run `python manage.py migrate`.
+3. Run `pip install -r requirements.txt`
+4. Run `python manage.py migrate`
 
 # Reproducing the Bug
 ## Browser
-1. Run `python manage.py runserver`.
+1. Run `python manage.py runserver`
 2. Open <http://localhost:8000/applicant>.
 3. Fill out the form fields and submit the form.
 4. Reload the page.
@@ -45,7 +45,7 @@ This exercise is compatible with Python 2.7, 3.4, 3.5 and 3.6.
 The only way to get the page to load again is to clear your session cookie.
 
 ## Unit tests
-1. Run `python manage.py test`.
+1. Run `python manage.py test`
 2. You will get two test errors when `ApplicantTestCase` runs (same error both times):
 
     > TypeError: strptime() argument 1 must be string, not datetime.date
