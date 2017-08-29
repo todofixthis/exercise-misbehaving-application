@@ -54,7 +54,7 @@ class ApplicantTestCase(TestCase):
         'last_name':  'Ravenwood',
         'gender':     'f',
         'birthday':   '1909-03-23',
-        'email':      'marion@ravens-nest.com',
+        'email':      'mravenwood1@aol.com',
       })
       """:type: django.http.HttpResponse"""
       self.assertEqual(response.status_code, 200)
@@ -68,4 +68,4 @@ class ApplicantTestCase(TestCase):
       self.assertEqual(applicant.last_name, 'Ravenwood')
       self.assertEqual(applicant.gender, 'f')
       self.assertEqual(applicant.birthday, date(1909, 3, 23))
-      self.assertEqual(applicant.email, 'marion@ravens-nest.com')
+      self.assertEqual(applicant.email, 'mravenwood1@aol.com')
