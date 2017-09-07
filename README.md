@@ -25,7 +25,7 @@ browser's session cookie, or to clear out the session contents in the database.
 This exercise is compatible with Python 2.7, 3.4, 3.5 and 3.6.
 
 1. Clone this repo and check out the `develop` branch.
-2. [Create a virtualenv for the project.](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
+2. [Create a virtualenv for the project.](https://realpython.com/blog/python/python-virtual-environments-a-primer/#Using.virtual.environments)
 3. Run `pip install -r requirements.txt`
 4. Run `python manage.py migrate`
 
